@@ -7,13 +7,16 @@
 `sudo apt-get remove --auto-remove nvidia-cuda-toolkit`
 
 2. Purging config/data
-
-`sudo apt-get purge --auto-remove nvidia-cuda-toolkit`
-`sudo apt autoremove --purge cuda`
-`sudo apt-get autoremove`
-`sudo apt-get autoclean`
-`sudo rm -rf /usr/local/cuda*`
-
+```
+sudo apt-get purge --auto-remove nvidia-cuda-toolkit
+sudo apt autoremove --purge cuda
+sudo apt-get autoremove
+sudo apt-get autoclean
+sudo rm -rf /usr/local/cuda*
+sudo apt-get purge libcudnn*
+sudo apt-get update
+sudo apt-get upgrade
+```
 3. Clean bash
 
 Remove any exports in your bash file by running
@@ -52,7 +55,7 @@ Before executing the installation instructions, check that your Nvidia driver ve
 
 wget http://developer.download.nvidia.com/compute/cuda/11.0.2/local_installers/cuda-repo-ubuntu2004-11-0-local_11.0.2-**450.51.05**-1_amd64.deb
 
-The NVidia driver version is the number after the CUDA version, so 450.51.05 at the time of writing. Run `nvidia-smi --version` and check in the top line what version your Nvidia driver has. If your driver is outdated, you can install the current driver version via the "Software and Updates" app of Ubuntu or run 
+The NVidia driver version is the number after the CUDA version, so 450.51.05 at the time of writing. Run `nvidia-smi` and check in the top line what version your Nvidia driver has. If your driver is outdated, you can install the current driver version via the "Software and Updates" app of Ubuntu or run 
 
 `sudo apt update`
 `sudo ubuntu-drivers devices`
